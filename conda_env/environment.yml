@@ -1,0 +1,22 @@
+name: rnaseq_env  # Nome do ambiente
+channels:               # Canais usados para buscar os pacotes
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:           # Pacotes e versões a serem instalados
+  - python=3.9
+  - fastqc
+  - star=2.7.10b
+  - samtools
+  - multiqc
+  - numpy
+  - pandas
+  - biopython
+  - pip
+  - pip:                 # Dependências instaladas via pip
+    - jupyter
+
+
+#todos os softawares que serão instalados e que precisam ser adicionados ao código:
+#fastqc, SRAtook, featuresCounts, STAR, samtools, multiqc, numpy, pandas, biopython, HISAT2, matplotlib, seaborn, pysam, htseq
+#picard tool, trimmomatic,rsem, gtfogenepred, cutadapt, collect_qc, bowtie2

@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Script to download and configure Conda environment
+CONDA_INSTALL_URL="https://repo.anaconda.com/archive/Anaconda3-2023.07-Linux-x86_64.sh"
+
+# Set the conda enviroment name
+ENV_NAME="rnaseq_env"
+
+# Set the path to download and install Conda
+INSTALL_DIR="$HOME/conda_envs"
+
+# Create the directory if it does not exist
+mkdir -p $INSTALL_DIR
+
+# Download the Conda installer
+echo "Downloading Conda installer..."
+wget $CONDA_INSTALL_URL -O $INSTALL_DIR/conda_installer.sh
+
+# Install Conda
+echo "Installing Conda..."
+bash $INSTALL_DIR/conda_installer.sh -b -p $INSTALL_DIR/$ENV_NAME
+
+# Initialize Conda (to be run once in shell)
+echo "Initializing Conda..."
+bash $INSTALL_DIR/$ENV_NAME/bin/conda init bash
+
+# Source the updated shell to enable Conda commands
+source ~/.bashrc
+
+# Activating the newly created environment
+conda activate rnaseq_env
+
+# Create and activate the Conda environment
+echo "Creating and activating the Conda environment..."
+conda create -y -n $ENV_NAME python=3.9
+conda activate $ENV_NAME
+
+#Update Conda and install necessary packages
+echo "Updating Conda and installing necessary packages..."
+conda update conda
+conda install -y -c bioconda htseq samtools bowtie2 subread
+
+# Step 3: Confirm installation and tool availability
+echo "Verifying installations..."
+conda list  # Listing installed tools
+
+# Deactivate the Conda environment after installation
+echo "Installation completed. To activate the environment, use: conda activate $ENV_NAME"
