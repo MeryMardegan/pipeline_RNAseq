@@ -16,7 +16,8 @@ dependencies:           # Pacotes e versões a serem instalados
   - pip:                 # Dependências instaladas via pip
     - jupyter
 
-
-#todos os softawares que serão instalados e que precisam ser adicionados ao código:
-#fastqc, SRAtook, featuresCounts, STAR, samtools, multiqc, numpy, pandas, biopython, HISAT2, matplotlib, seaborn, pysam, htseq
-#picard tool, trimmomatic,rsem, gtfogenepred, cutadapt, collect_qc, bowtie2
+'''
+todos os softawares que serão instalados e que precisam ser adicionados ao código:
+fastqc, SRAtook, featuresCounts, STAR, samtools, multiqc, numpy, pandas, biopython, HISAT2, matplotlib, seaborn, pysam, htseq
+picard tool, trimmomatic,rsem, gtfogenepred, cutadapt, collect_qc, bowtie2
+'''
